@@ -14,9 +14,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
-public class SampleTestCase extends AppiumDriverBase {
+/**
+ * This class has all different methods which uses each Appium feature like swipe, scroll, tap etc
+ * All test cases work on: ApiDemos-debug.apk, unless specified
+ */
+public class TestAppiumFeatures extends AppiumDriverBase {
 
-	// Test Annotation changes any java function to TestNG test case
 	// @Test
 	public void sampeTest() {
 
@@ -142,21 +145,20 @@ public class SampleTestCase extends AppiumDriverBase {
 		driver.lockDevice();
 		System.out.println("Locked: " + driver.isLocked()); // true
 		driver.unlockDevice();
-		System.out.println("UnLocked: " + driver.isLocked()); //false
+		System.out.println("UnLocked: " + driver.isLocked()); // false
 	}
-	
-	
-	//@Test
-	public void networkSettings(){
+
+	// @Test
+	public void networkSettings() {
 		driver.setConnection(Connection.ALL);
 		System.out.println(driver.getConnection());
-		
+
 		driver.setConnection(Connection.AIRPLANE);
 		System.out.println(driver.getConnection());
 
 		driver.setConnection(Connection.NONE);
 		System.out.println(driver.getConnection());
-		
+
 		driver.setConnection(Connection.WIFI);
 		System.out.println(driver.getConnection());
 
@@ -164,19 +166,17 @@ public class SampleTestCase extends AppiumDriverBase {
 		System.out.println(driver.getConnection());
 	}
 
-	
-	//@Test
-	public void longPress(){
+	// @Test
+	public void longPress() {
 		driver.startActivity("io.appium.android.apis", ".view.Buttons1");
-		  TouchAction action=new TouchAction(driver);
-		  action.longPress(driver.findElementById("io.appium.android.apis:id/button_toggle")).release().perform();
-		
+		TouchAction action = new TouchAction(driver);
+		action.longPress(driver.findElementById("io.appium.android.apis:id/button_toggle")).release().perform();
+
 	}
-	
-	
-	//@Test
-	public void zoomInOut() throws InterruptedException{
-		
+
+	// @Test
+	public void zoomInOut() throws InterruptedException {
+
 		driver.startActivity("io.appium.android.apis", ".ApiDemos");
 		MobileElement e = (MobileElement) driver.findElement(MobileBy.AccessibilityId("App"));
 		Thread.sleep(500);
@@ -184,26 +184,25 @@ public class SampleTestCase extends AppiumDriverBase {
 		Thread.sleep(500);
 		e.pinch();
 	}
-	
-	//@Test
-	public void notifications(){
+
+	// @Test
+	public void notifications() {
 		driver.openNotifications();
-		System.out.println("Notification Size: "+driver.findElements(By.id("com.android.systemui:id/carrier_label")).size());
+		System.out.println(
+				"Notification Size: " + driver.findElements(By.id("com.android.systemui:id/carrier_label")).size());
 	}
-	
-	
-	//@Test
-	public void keyCode(){
+
+	// @Test
+	public void keyCode() {
 		driver.launchApp();
 		driver.longPressKeyCode(AndroidKeyCode.HOME);
-		
+
 	}
-	
-	
-	//@Test
-	public void hybridApp(){
-		//selendroid app
-		
+
+	// @Test
+	public void hybridApp() {
+		// selendroid app
+
 	}
 
 }

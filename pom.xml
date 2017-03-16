@@ -1,12 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>appium</groupId>
-  <artifactId>AppiumWay</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>mobileautomation</name>
-  <description>for appium practice</description>
-  
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>appium</groupId>
+	<artifactId>AppiumWay</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mobileautomation</name>
+	<description>for appium practice</description>
+
+	<properties>
 		<appium.version>4.0.0</appium.version>
 		<testng.version>6.9.10</testng.version>
 	</properties>
@@ -28,6 +29,15 @@
 			<scope>test</scope>
 		</dependency>
 
+
+		<!--  dont know why i added this
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.5</version>
+		</dependency>
+		-->
+
 	</dependencies>
-	
+
 </project>

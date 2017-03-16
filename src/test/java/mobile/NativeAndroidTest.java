@@ -20,24 +20,27 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class NativeAndroidTest {
 
-    AppiumDriver driver;
+	AndroidDriver driver;
 
     @BeforeClass
     public void beforeClass() throws MalformedURLException {
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android emulator");
-        capabilities.setCapability("avd", "Nexus_5");
-
-        //Calculator
-        //capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.android.calculator2");
-        //capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, "com.android.calculator2.Calculator");
+        DesiredCapabilities caps = new DesiredCapabilities();
+        
+        caps.setCapability("browserName", ""); // 'chrome' for browser else left blank for app
+		caps.setCapability("platform", "ANDROID");
+		caps.setCapability("platformVersion", "6.0");
+		caps.setCapability("deviceName", "ANDROID");
+       
+        //For Calculator apk
+        caps.setCapability("appPackage", "com.android.calculator2");
+        caps.setCapability("appActivity", "com.android.calculator2.Calculator");
 
         //Dialer Pad - No apk setting req in appium server
-        //capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.android.dialer");
-        //capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, "com.android.dialer.DialtactsActivity");
+        //caps.setCapability("appPackage", "com.android.dialer");
+        //caps.setCapability("appActivity", "com.android.dialer.DialtactsActivity");
 
-        driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
